@@ -1,0 +1,61 @@
+.boxCast {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 20px;
+  color: #392f12;
+  padding-top: 32px;
+  margin-bottom: 18px;
+}
+
+.cast {
+  margin-bottom: 10px;
+}
+
+.detailsInfo {
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  color: #1a1815;
+
+  &:hover {
+    color: #7a6628;
+  }
+}
+
+.active {
+  position: relative;
+  color: #00427c;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.nameActor {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.btn {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: translate(-10px);
+  border: 1px solid #5f80f8;
+}

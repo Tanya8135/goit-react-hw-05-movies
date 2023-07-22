@@ -1,0 +1,31 @@
+.boxMovies {
+  height: 100vh;
+}
+
+.titleHome {
+  padding-top: 18px;
+  margin-bottom: 32px;
+  color: rgb(106, 72, 9);
+}
+
+.itemMovie {
+  margin-bottom: 8px;
+
+  &:hover {
+    animation: text-shadow-drop-center 0.4s both;
+    font-weight: 500;
+  }
+}
+
+@keyframes text-shadow-drop-center {
+  0% {
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    text-shadow: 0 0 18px rgb(252, 198, 2);
+  }
+}
+
+.textColor {
+  color: rgb(3, 46, 3);
+}

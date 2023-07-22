@@ -1,0 +1,51 @@
+.boxMovieDetails {
+  padding: 0 96px 196px 96px;
+  height: 100%;
+}
+
+.btnBack {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 8px 32px;
+  margin: 3px;
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(235, 235, 253);
+  }
+}
+
+.generalBox {
+  display: flex;
+  /* align-items: baseline; */
+}
+
+.nameMovie {
+  margin-bottom: 32px;
+}
+
+.title {
+  color: rgb(25, 25, 107);
+
+  &.title__Name {
+    font-weight: 700;
+  }
+}
+
+.titleBottom {
+  margin-bottom: 14px;
+}
+
+.rating {
+  margin-left: 32px;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.3;
+  max-width: 500px;
+}

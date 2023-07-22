@@ -1,0 +1,10 @@
+.boxApp {
+  padding: 0 40px 10px 40px;
+  background: rgb(147, 141, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(147, 141, 255, 1) 0%,
+    rgb(212, 236, 154) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}

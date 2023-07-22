@@ -1,0 +1,56 @@
+.reviews {
+  margin-bottom: 10px;
+}
+
+.detailsInfo {
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  color: #1a1815;
+
+  &:hover {
+    color: #7a6628;
+  }
+}
+
+.active {
+  position: relative;
+  color: #00427c;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.btn {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: translate(-10px);
+  border: 1px solid #5f80f8;
+}
+
+.boxBtn {
+  position: relative;
+  left: 90%;
+  bottom: 0;
+}
+
+.author {
+  margin-bottom: 8px;
+  padding-top: 18px;
+}
+
+.infoAuthor {
+  font-size: 15px;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}

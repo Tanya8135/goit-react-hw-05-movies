@@ -1,0 +1,39 @@
+.listNav {
+  display: flex;
+}
+
+.itemNav {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 12px;
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.active {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  position: relative;
+  color: orange;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 94%;
+  border: 2px solid rgb(186, 229, 168);
+  border-radius: 2px;
+  background-color: orange;
+}
+
+.active:hover,
+.active:active {
+  color: rgb(249, 175, 3);
+}
