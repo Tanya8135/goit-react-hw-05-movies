@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, NavLink, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL, API_KEY } from 'api/config';
 
