@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL, API_KEY } from 'api/config';
 
@@ -14,10 +14,8 @@ const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
   const [err, setErr] = useState(null);
 
-  // const location = useLocation();
-  // console.log(location)
-  // const backLink = location.state?.from ?? '/';
-  const navigate = useNavigate();
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -60,19 +58,8 @@ const MovieDetails = () => {
 
   return (
     <div className={css.boxMovieDetails}>
-      {/* <Link to={backLink}>
+      <Link to={backLink}>
         <button className={css.btnBack}>&larr; Go back</button>
-      </Link> */}
-
-      <Link>
-        <button
-          className={css.btnBack}
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          &larr; Go back
-        </button>
       </Link>
 
       <div className={css.generalBox}>
@@ -93,9 +80,7 @@ const MovieDetails = () => {
         </div>
       </div>
 
-      <div>
-        <MainNav movieId={movieId} />
-      </div>
+      <MainNav />
     </div>
   );
 };

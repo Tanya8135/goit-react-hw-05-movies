@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL, API_KEY } from 'api/config';
 
@@ -54,13 +54,13 @@ const Reviews = () => {
   return (
     <div>
       <div className={css.reviews}>
-        <NavLink
-          to={`/movies/${movieId}/reviews`}
+        {/* <Link
+          to="reviews"
           onClick={handleToggleReviws}
           className={`${showReviews ? css.active : ''} ${css.detailsInfo}`}
         >
           Reviews
-        </NavLink>
+        </Link> */}
       </div>
 
       {showReviews && (

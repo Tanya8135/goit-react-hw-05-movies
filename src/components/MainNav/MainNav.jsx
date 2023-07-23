@@ -1,18 +1,26 @@
-import Cast from 'pages/MovieDetails/Cast/Cast';
-import Reviews from 'pages/MovieDetails/Reviews/Reviews';
+// import Cast from 'pages/MovieDetails/Cast/Cast';
+// // import Reviews from 'pages/MovieDetails/Reviews/Reviews';
+import { Link, Outlet } from 'react-router-dom';
 
-const MainNav = () => {
+const MainNav = ({ movieId }) => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Cast />
-        </li>
-        <li>
-          <Reviews />
-        </li>
-      </ul>
-    </nav>
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="cast" >
+              Cast
+            </Link>
+          </li>
+          <li>
+            <Link to="reviews" >
+              Reviews
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <Outlet />
+    </div>
   );
 };
 
