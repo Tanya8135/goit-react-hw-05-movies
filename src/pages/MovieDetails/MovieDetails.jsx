@@ -58,7 +58,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.boxMovieDetails}>
-      <Link to={backLink} state={{ from: location }}> {/* ??? */}
+      <Link to={backLink}>
         <button className={css.btnBack}>&larr; Go back</button>
       </Link>
 
