@@ -76,7 +76,11 @@ const Movies = () => {
       <ul>
         {searchResults.map(movie => (
           <li key={movie.id} className={style.itemMovie}>
-            <NavLink to={`/movies/${movie.id}`} className={style.textColor}>
+            <NavLink
+              to={`/movies/${movie.id}`}
+              state={{ from: '/movies' }}
+              className={style.textColor}
+            >
               {movie.title}
             </NavLink>
           </li>

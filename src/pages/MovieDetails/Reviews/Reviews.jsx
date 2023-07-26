@@ -39,7 +39,7 @@ const Reviews = () => {
     fetchReviews();
   }, [movieId]);
 
-  const handleToggleReviws = () => {
+  const handleToggleReviews = () => {
     setShowReviews(prevShowReview => !prevShowReview);
   };
 
@@ -47,44 +47,26 @@ const Reviews = () => {
     return <div>{err}</div>;
   }
 
-  if (!reviews) {
-    return <div>Loading...</div>;
+  if (reviews.length === 0) {
+    return <div>No information</div>;
   }
 
   return (
     <div>
-      <div className={css.reviews}>
-        {/* <Link
-          to="reviews"
-          onClick={handleToggleReviws}
-          className={`${showReviews ? css.active : ''} ${css.detailsInfo}`}
-        >
-          Reviews
-        </Link> */}
-      </div>
-
-      {showReviews && (
-        <>
-          {reviews && reviews.length > 0 ? (
-            <div>
-              {reviews.map(review => (
-                <div key={review.id}>
-                  <h3 className={css.author}>Author: {review.author}</h3>
-                  <p className={css.infoAuthor}>{review.content}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div>No Information</div>
-          )}
-
-          <div className={css.boxBtn}>
-            <button onClick={handleToggleReviws} className={css.btn}>
-              Close
-            </button>
+      <div className={css.reviews}></div>
+      <div>
+        {reviews.map(review => (
+          <div key={review.id}>
+            <h3 className={css.author}>Author: {review.author}</h3>
+            <p className={css.infoAuthor}>{review.content}</p>
           </div>
-        </>
-      )}
+        ))}
+      </div>
+      <div className={css.boxBtn}>
+        <button onClick={handleToggleReviews} className={css.btn}>
+          Close
+        </button>
+      </div>
     </div>
   );
 };

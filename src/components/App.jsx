@@ -13,7 +13,7 @@ const Reviews = lazy(() => import('../pages/MovieDetails/Reviews/Reviews'));
 export const App = () => {
   return (
     <div className={css.boxApp}>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className={css.loading}>Loading...</div>}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />

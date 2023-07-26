@@ -8,3 +8,9 @@
     rgba(0, 212, 255, 1) 100%
   );
 }
+
+.loading {
+  padding: 60px;
+  height: 100vw;
+  font-size: 18px;
+}
