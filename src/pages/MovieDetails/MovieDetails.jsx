@@ -7,7 +7,7 @@ import MainNav from 'components/MainNav';
 import css from './MovieDetails.module.css';
 
 const defaultImg =
-  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=300x500';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -58,7 +58,7 @@ const MovieDetails = () => {
 
   return (
     <div className={css.boxMovieDetails}>
-      <Link to={backLink}>
+      <Link to={backLink} state={{ from: location }}> {/* ??? */}
         <button className={css.btnBack}>&larr; Go back</button>
       </Link>
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { API_URL, API_KEY } from '../../api/config';
@@ -7,11 +7,13 @@ import { API_URL, API_KEY } from '../../api/config';
 import style from './Movies.module.css';
 
 const Movies = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchRequest, setSearchRequest] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSubmit = () => {
     handleSearch(searchRequest);
+    updateQueryMovie(searchParams);
   };
 
   const handleSearch = async () => {
@@ -37,13 +39,20 @@ const Movies = () => {
     }
   };
 
+  const updateQueryMovie = name => {
+    const nextParams = name !== '' ? { name } : {};
+    setSearchParams(nextParams);
+  };
+
   const handleInputChange = e => {
     setSearchRequest(e.target.value);
+    updateQueryMovie(e.target.value);
   };
 
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
       handleSearch();
+      updateQueryMovie(searchRequest);
     }
   };
 

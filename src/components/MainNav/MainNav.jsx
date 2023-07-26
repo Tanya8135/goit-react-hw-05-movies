@@ -8,12 +8,12 @@ const MainNav = ({ movieId }) => {
       <nav>
         <ul>
           <li>
-            <Link to="cast" >
+            <Link to="cast">
               Cast
             </Link>
           </li>
           <li>
-            <Link to="reviews" >
+            <Link to="reviews">
               Reviews
             </Link>
           </li>
