@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { NavLink, useSearchParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import { API_URL, API_KEY } from '../../api/config';
@@ -7,12 +7,13 @@ import style from './Movies.module.css';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const savedSearchRequest = localStorage.getItem('searchRequest');
   const [searchRequest, setSearchRequest] = useState(
-    searchParams.get('name') || savedSearchRequest || ''
+    searchParams.get('name') || ''
   );
   const [searchResults, setSearchResults] = useState([]);
   const [searchedQuery, setSearchedQuery] = useState('');
+
+  const location = useLocation();
 
   useEffect(() => {
     if (searchRequest && searchRequest !== searchedQuery) {
@@ -20,10 +21,6 @@ const Movies = () => {
     }
     // eslint-disable-next-line
   }, [searchRequest, searchedQuery]);
-
-  useEffect(() => {
-    localStorage.setItem('searchRequest', searchRequest);
-  }, [searchRequest]);
 
   const handleSubmit = () => {
     setSearchedQuery(searchRequest);
@@ -91,7 +88,7 @@ const Movies = () => {
           <li key={movie.id} className={style.itemMovie}>
             <NavLink
               to={`/movies/${movie.id}`}
-              state={{ from: `/movies?query=${searchRequest}` }}
+              state={{ from: location }}
               className={style.textColor}
             >
               {movie.title}
