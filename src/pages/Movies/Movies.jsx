@@ -7,6 +7,7 @@ import { API_URL, API_KEY } from '../../api/config';
 import style from './Movies.module.css';
 
 const Movies = () => {
+  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchRequest, setSearchRequest] = useState('');
   const [searchResults, setSearchResults] = useState([]);
