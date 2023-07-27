@@ -9,7 +9,7 @@ const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [err, setErr] = useState(null);
-  const [showReviews, setShowReviews] = useState(false);
+  const [reviewsVisible, setReviewsVisible] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -40,7 +40,7 @@ const Reviews = () => {
   }, [movieId]);
 
   const handleToggleReviews = () => {
-    setShowReviews(prevShowReview => !prevShowReview);
+    setReviewsVisible(prevReviwsVisable => !prevReviwsVisable);
   };
 
   if (err) {
@@ -53,18 +53,22 @@ const Reviews = () => {
 
   return (
     <div>
-      <div className={css.reviews}></div>
-      <div>
-        {reviews.map(review => (
-          <div key={review.id}>
-            <h3 className={css.author}>Author: {review.author}</h3>
-            <p className={css.infoAuthor}>{review.content}</p>
-          </div>
-        ))}
-      </div>
+      {reviewsVisible ? (
+        <div>
+          {reviews.map(review => (
+            <div key={review.id}>
+              <h3 className={css.author}>Author: {review.author}</h3>
+              <p className={css.infoAuthor}>{review.content}</p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div></div>
+      )}
+
       <div className={css.boxBtn}>
         <button onClick={handleToggleReviews} className={css.btn}>
-          Close
+          {reviewsVisible ? 'Close' : ' Show Reviws'}
         </button>
       </div>
     </div>

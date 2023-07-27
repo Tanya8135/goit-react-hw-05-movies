@@ -13,7 +13,7 @@ const Movies = () => {
 
   const handleSubmit = () => {
     handleSearch(searchRequest);
-    updateQueryMovie(searchParams);
+    updateQueryMovie(searchRequest);
   };
 
   const handleSearch = async () => {
@@ -40,7 +40,7 @@ const Movies = () => {
   };
 
   const updateQueryMovie = name => {
-    const nextParams = name !== '' ? { name } : {};
+    const nextParams = name !== '' ? { name: name } : {};
     setSearchParams(nextParams);
   };
 
