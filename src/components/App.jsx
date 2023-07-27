@@ -24,7 +24,7 @@ export const App = () => {
               <Route path="reviews" element={<Reviews />} />
             </Route>
 
-            <Route path="*" element={<div>Page not found</div>} />
+            <Route path="/*" element={<Home />} />
           </Route>
         </Routes>
       </Suspense>

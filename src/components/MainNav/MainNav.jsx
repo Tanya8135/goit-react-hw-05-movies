@@ -1,6 +1,7 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 const MainNav = () => {
+  const { movieId } = useParams();
   return (
     <div>
       <nav>
@@ -9,7 +10,8 @@ const MainNav = () => {
             <Link to="cast">Cast</Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            {/* <Link to="reviews">Reviews</Link> */}
+            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
           </li>
         </ul>
       </nav>
