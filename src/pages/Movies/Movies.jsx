@@ -1,19 +1,32 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 import { API_URL, API_KEY } from '../../api/config';
-
 import style from './Movies.module.css';
 
 const Movies = () => {
-  // eslint-disable-next-line
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchRequest, setSearchRequest] = useState('');
+  const savedSearchRequest = localStorage.getItem('searchRequest');
+  const [searchRequest, setSearchRequest] = useState(
+    searchParams.get('name') || savedSearchRequest || ''
+  );
   const [searchResults, setSearchResults] = useState([]);
+  const [searchedQuery, setSearchedQuery] = useState('');
+
+  useEffect(() => {
+    if (searchRequest && searchRequest !== searchedQuery) {
+      handleSearch(searchRequest);
+    }
+    // eslint-disable-next-line
+  }, [searchRequest, searchedQuery]);
+
+  useEffect(() => {
+    localStorage.setItem('searchRequest', searchRequest);
+  }, [searchRequest]);
 
   const handleSubmit = () => {
-    handleSearch(searchRequest);
+    setSearchedQuery(searchRequest);
     updateQueryMovie(searchRequest);
   };
 
@@ -35,6 +48,7 @@ const Movies = () => {
       const resp = await axios.request(options);
       const movies = resp.data.results;
       setSearchResults(movies);
+      setSearchedQuery(searchRequest);
     } catch (err) {
       console.log(err);
     }
@@ -47,13 +61,11 @@ const Movies = () => {
 
   const handleInputChange = e => {
     setSearchRequest(e.target.value);
-    updateQueryMovie(e.target.value);
   };
 
   const handleKeyDown = e => {
     if (e.key === 'Enter') {
-      handleSearch();
-      updateQueryMovie(searchRequest);
+      handleSubmit();
     }
   };
 
@@ -79,7 +91,7 @@ const Movies = () => {
           <li key={movie.id} className={style.itemMovie}>
             <NavLink
               to={`/movies/${movie.id}`}
-              state={{ from: '/movies' }}
+              state={{ from: `/movies?query=${searchRequest}` }}
               className={style.textColor}
             >
               {movie.title}

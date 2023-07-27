@@ -1,17 +1,21 @@
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 const MainNav = () => {
-  const { movieId } = useParams();
+  const location = useLocation();
+  const backLink = location.state?.from ?? '/';
   return (
     <div>
       <nav>
         <ul>
           <li>
-            <Link to="cast">Cast</Link>
+            <Link to="cast" state={{ from: backLink }}>
+              Cast
+            </Link>
           </li>
           <li>
-            {/* <Link to="reviews">Reviews</Link> */}
-            <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+            <Link to="reviews" state={{ from: backLink }}>
+              Reviews
+            </Link>
           </li>
         </ul>
       </nav>
